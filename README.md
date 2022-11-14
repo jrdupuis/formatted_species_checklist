@@ -69,8 +69,19 @@ The goal of the rich text formatting (rtf) portion of this approach is to avoid 
 looks like this when opened in Word:
 ![raw bycid checklist](example_rtf.jpg)
 
-Thus, we can stitch together 
+Thus, rtf formatting elements specifying new lines, bold, italics, etc. can be integrated into a concatenate function in excel to create formatted records for every species in the database. There are a lot of formatting options in basic rtf (see for example [the rtf pocket guide](https://www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html) for details), but the most pertinent ones are:
+```
+{\rtf1\ansi\deff0        # required as the first line of the rtf file (header)
+}                        # required as the last line of the rtf file (footer)
 
+{   }                    # curly brackets need to enclose each unique format and/or text
+{\pard                   # inserts new line
+/par}                    # ends new line
 
+\i                       # italic
+\b                       # bold text
+\i\b                     # these can be combined for italics and bold
 
-various rtf resources online (e.g. [the rtf pocket guide](https://www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html))
+```
+
+See [example_bycid_rtf_formatting.xlsx](example_bycid_rtf_formatting.xlsx) for an example of adding these to a concatenate function in excel. If the contents of column S (cells S2:S218) are pasted into a text file with the rtf header and footer as first and last line and saved as .rtf format, most contemporary word processor softwares (e.g. Microsoft Word) will interpret the rtf as the second image at the top of this readme. For the Cerambycidae of Kentucky, we used this method to create the raw, formatted checklist, and then added the "comments" field for each species manually. 
