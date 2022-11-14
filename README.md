@@ -87,10 +87,11 @@ Thus, rtf formatting elements specifying new lines, bold, italics, etc. can be i
 
 ```
 
+#### In Excel (or alternative):
 The rtf can be added to a concatenate function in excel like this:
 ```
 =CONCATENATE("{\pard {\i\b ",A2,"}",B2,";",E2," ",IF(G2="x","{\b [new state record]}",""),"\par} {\pard ","{\b Kentucky counties: }",I2,"\par} {\pard ","{\b Years: }",J2,"\par} {\pard ","{\b Months: }",M2,"\par} {\pard ","{\b Collections (",F2,"): }",N2,"\par} {\pard ","{\b Collection methods: }",L2,"\par} {\pard ","{\b Comments: }","\sa180  \par}")
 ```
-where cell A2 contains the species name, B2 the authority, E2 the tribe, F2 the total number of specimens for this species, and G2 whether (contains "x") or not (empty cell) this species is a new state record. Cells I2, J2, L2, M2, and N2 are the tabulated lists for counties, years, collection methods, months, and collection coden, respectively, that were generated above in step 3. 
+where cell A2 contains the species name, B2 the authority, E2 the tribe, F2 the total number of specimens for this species, and G2 whether (contains "x") or not (empty cell) this species is a new state record. Cells I2, J2, L2, M2, and N2 are the tabulated lists for counties, years, collection methods, months, and collection coden, respectively, that were generated above in step 3. It's a fiddly, long function, but once it's figured out for one species, then it can be copied down for the whole spreadsheet, thus automating the formatting.
 
 See [example_bycid_rtf_formatting.xlsx](example_bycid_rtf_formatting.xlsx) for a full spreadsheet of these functions. If the contents of **column S** (cells S2:S218) are copied and pasted into a text file with the rtf header and footer as first and last line and saved as .rtf format, most contemporary word processor softwares (e.g. Microsoft Word) will interpret the rtf as the second image at the top of this readme. For the Cerambycidae of Kentucky, we used this method to create the raw, formatted checklist, and then added the "comments" field for each species manually. 
