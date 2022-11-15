@@ -21,7 +21,7 @@ to this formatted checklist:
 ## Step 1. Specimen record spreadsheet
 This is a user-input file with various information on a per-specimen basis. For the cerambycids of KY, we generated this input from our own digitized specimens, specimen records from other collections, and aggregated records from SCAN/GBIF. See `bycid_data.txt` for an example of a tab-delimited text file version of this spreadsheet.
 
-Note, this requires 1 row per specimen, so if a dataset contains a unique collection localities in each row and a column defining the number of specimens of a given species at that unique locality, the following could be used to replicate specimen records: 
+Note, this requires 1 row per specimen, so if a dataset contains a unique collection locality in each row and a column defining the number of specimens of a given species at that unique locality, the following could be used to replicate specimen records: 
 
 ```awk -F'\t' '{for(i=0;i<$17*1;i++)print}' prep1.txt > prep2.txt```
 
@@ -33,7 +33,7 @@ A list of unique species in the dataset is used in subsequent steps, and could b
 ```awk -F'\t' '{print $3}' bycid_data.txt | tail -n +2 | awk -F' ' '{print $1"_"$2}' | sort | uniq > bycid_species_unique```
 
 ## Step 3. Tabulate parameter counts for each species
-Then, for loops with some piped unix commands are used to take each unique species in the dataset and count the number of specimens for a given unique parameter in the dataset. For example, we wanted to tabulate for each species the number of specimens that were collected in each county in Kentucky and format that output ina  way to be used in the next step. County is column 9 in `bycid_data.txt`, and the following for loop will extract and tabulate the unique counts per county per species, and write them to new file called `list_counties`:
+Then, for loops with some piped unix commands are used to take each unique species in the dataset and count the number of specimens for a given unique parameter in the dataset. For example, we wanted to tabulate for each species the number of specimens that were collected in each county in Kentucky and format that output in a way to be used in the next step. County is column 9 in `bycid_data.txt`, and the following for loop will extract and tabulate the unique counts per county per species, and write them to new file called `list_counties`:
 
 ```for f in `cat bycid_species_unique `; do echo -n -e  $f'\t'; grep $f bycid_data.txt | awk -F'\t' '{print $9}' | sort | uniq -c | awk -F' ' '{print " "$2" ("$1")"}' | tr "\n" ","| sed -e 's/.$//'; done > list_counties```
 
