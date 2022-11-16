@@ -59,7 +59,7 @@ Identical for loops, except for the column being considered in the first `awk` a
 Now with tabulated counts and information for each species, these can be combined into a species record spreadsheet in excel or using unix (but since we take advantage of excel's concatenate function in the next step, might as well use excel). So now this spreadsheet should have 1 row per species, and any pertinent information (taxonomic authority, notes, etc.) can be added to this spreadsheet. 
 
 ## Step 5. Rich text formatting
-The goal of the rich text formatting (rtf) portion of this approach is to avoid having to manually add italics, bold, punctuation, line breaks, etc. from the accumulated and tabulated information for each species. The Cerambycidae of Kentucky contained 222 species, leading to thousands of manual formatting edits that would be required in the final checklist. With some very basic rtf and a concatenation function it's relatively easy to automate this formatting for each species in the species record spreadsheet. For example, this line of rtf saved in a text file with the .rtf suffix:
+The goal of the rich text formatting (rtf) portion of this approach is to avoid having to manually add italics, bold, punctuation, line breaks, etc. from the accumulated and tabulated information for each species. The Cerambycidae of Kentucky contained 222 species, leading to thousands of manual formatting edits that would be required in the final checklist. With some very basic rtf and a concatenation function in excel it's relatively easy to automate this formatting for each species in the species record spreadsheet. For example, this line of rtf saved in a text file with the .rtf suffix:
 
 ```
 {\rtf1\ansi\deff0 
