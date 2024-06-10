@@ -1,6 +1,6 @@
 # Formatting species checklists with rtf
 
-This repo houses code and scripts used to take an excel spreadsheet of specimen records and extract/format the data into a formatted species checklist. We generated this approach to facilitate creating a checklist of the Cerambycidae of Kentucky. Ultimately, this approach takes advantage of some simple for loops, unix commands, and rich-text formatting and lets you go from this specimen record spreadsheet:
+This repo houses code and scripts used to take an excel spreadsheet of specimen records and extract/format the data into a formatted species checklist. We generated this approach to facilitate creating a checklist of the [Cerambycidae of Kentucky](https://www.mapress.com/zt/article/view/zootaxa.5229.1.1). Ultimately, this approach takes advantage of some simple for loops, unix commands, and rich-text formatting and lets you go from this specimen record spreadsheet:
 
 ![bycid spreadsheet](bycid_spreadsheet.jpg)
 
