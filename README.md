@@ -60,6 +60,7 @@ Identical for loops, except for the column being considered in the first `awk` a
 ```for f in `cat cleridae_species_unique `; do echo -n -e  $f'\t'; grep $f cleridae_prep3.txt | awk -F'\t' '{print $22}' | sort | uniq -c | awk -F' ' '{print " "$2" ("$1")"}' | tr "\n" ","; echo ; done | sed 's/.$//' > list_counties```
 
 Additionally, for some columns where data may not exist for all records (e.g., collecting methods), this version will avoid a count for empty cells: (the `sed  '/^$/d'` bit)
+
 ```for f in `cat cleridae_species_unique `; do echo -n -e  $f'\t'; grep $f cleridae_prep3.txt | awk -F'\t' '{print $19}' | sed  '/^$/d' | sort | uniq -c | awk -F' ' '{print " "$2" ("$1")"}' | tr "\n" ","; echo; done | sed 's/.$//'```
 
 
