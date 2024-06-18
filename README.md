@@ -55,6 +55,10 @@ Anoplodera_pubera	 Fayette (1), Madison (3), Morgan (3), Rowan (3)
 
 Identical for loops, except for the column being considered in the first `awk` and the output file name, were used to tabulate the number of specimens per county, year collected, month collected, collection method, and museum/collection housing the specimens. 
 
+2024 update: had to tweak that line of code (just the bit at the end to remove trailing commas). This is working on Mac OS Ventura 13.2.1 (slightly different dataset and file names):
+```for f in `cat cleridae_species_unique `; do echo -n -e  $f'\t'; grep $f cleridae_prep3.txt | awk -F'\t' '{print $22}' | sort | uniq -c | awk -F' ' '{print " "$2" ("$1")"}' | tr "\n" ","; echo ; done | sed 's/.$//' > list_counties```
+
+
 ## Step 4. Species record spreadsheet
 Now with tabulated counts and information for each species, these can be combined into a species record spreadsheet in excel or using unix (but since we take advantage of excel's concatenate function in the next step, might as well use excel). So now this spreadsheet should have 1 row per species, and any pertinent information (taxonomic authority, notes, etc.) can be added to this spreadsheet. 
 
